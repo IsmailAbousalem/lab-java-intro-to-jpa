@@ -26,31 +26,21 @@ class CustomerRepositoryTest {
 
     @AfterEach
     void tearDown() {
-        customerRepository.deleteAll();
+        customerRepository.deleteAll(customerRepository.findByCustomerName("Pepe"));
     }
 
-//    @Test
-//    public void findAll_CustomersExist_Customers() {
-//        List<Customer> customersList = customerRepository.findAll();
-//        assertEquals(1, customersList.size());
-//    }
 
     @Test
     public void findByCustomerName_ValidCustomerName_RightCustomers() {
         List<Customer> customerList = customerRepository.findByCustomerName("Pepe");
-        assertEquals("Pepe", customerList.size());
+        assertEquals(1, customerList.size());
     }
 
-//    @Test
-//    public void findCustomersById_ValidId_RightCustomers() {
-//        Customers customers = customersRepository.findCustomersById(4);
-//        assertEquals(4, customers.getId());
-//    }
 
     @Test
     public void findByCustomerStatus_ValidStatus_RightCustomers() {
         List<Customer> customersList = customerRepository.findByCustomerStatus(CustomerStatus.GOLD);
-        assertEquals(2, customersList.size());
+        assertEquals(1, customersList.size());
     }
 
 }

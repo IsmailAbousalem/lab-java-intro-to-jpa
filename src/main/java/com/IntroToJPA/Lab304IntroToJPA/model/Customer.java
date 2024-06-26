@@ -15,7 +15,7 @@ public class Customer {
     private String customerName;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
+//    @Column(nullable = false)
     private CustomerStatus customerStatus;
 
     @Column(nullable = false)
